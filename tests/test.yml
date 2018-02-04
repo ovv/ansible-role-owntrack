@@ -5,6 +5,7 @@
     - pyslackers.nginx
   vars:
     # pyslackers.postgres variables
+    ufw_enabled: False
     nginx_sites:
       owntrack:
         locations:

@@ -1,5 +1,12 @@
 ---
 
+- name: Requirements
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+  with_items:
+    - gnupg2
+
 - name: owntrack repo key
   apt_key:
     url: http://repo.owntracks.org/repo.owntracks.org.gpg.key
