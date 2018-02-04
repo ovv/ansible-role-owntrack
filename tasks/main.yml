@@ -1,0 +1,30 @@
+---
+
+- name: Requirements
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+  with_items:
+    - gnupg2
+
+- name: owntrack repo key
+  apt_key:
+    url: http://repo.owntracks.org/repo.owntracks.org.gpg.key
+
+- name: owntrack repo
+  apt_repository:
+    repo: deb http://repo.owntracks.org/debian stretch main
+    update_cache: yes
+    state: present
+
+- name: install
+  apt:
+    pkg: ot-recorder
+    state: latest
+
+- name: configure
+  template:
+    src: etc/default/ot-recorder
+    dest: /etc/default/ot-recorder
+  notify:
+    - restart owntrack

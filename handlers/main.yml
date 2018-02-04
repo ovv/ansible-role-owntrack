@@ -1,0 +1,6 @@
+---
+
+- name: restart owntrack
+  systemd:
+    name: ot-recorder.service
+    state: restarted
