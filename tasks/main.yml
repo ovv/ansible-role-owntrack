@@ -28,3 +28,9 @@
     dest: /etc/default/ot-recorder
   notify:
     - restart owntrack
+
+- name: Enable
+  systemd:
+    name: ot-recorder
+    state: started
+    enabled: true
