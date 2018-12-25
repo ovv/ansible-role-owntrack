@@ -2,10 +2,8 @@
 
 - name: Requirements
   apt:
-    pkg: "{{ item }}"
+    pkg: gnupg2
     state: latest
-  with_items:
-    - gnupg2
 
 - name: owntrack repo key
   apt_key:
